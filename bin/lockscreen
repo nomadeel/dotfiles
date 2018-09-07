@@ -1,0 +1,10 @@
+#1/bin/bash
+
+param=(--verifcolor=ffffff00 --wrongcolor=ffffff00 --insidecolor=81a1c100 --ringcolor=81a1c100 \
+    --linecolor=2e344000 --keyhlcolor=81a1c1aa --ringvercolor=fadd5caa \
+    --bshlcolor=bf616aaa \
+    --separatorcolor=22222200 \
+    --insidevercolor=fadd5c00 \
+    --ringwrongcolor=bf616aaa --insidewrongcolor=bf616a00)
+
+i3lock "${param[@]}" -n -i "$HOME/pictures/lockscreen.png"
