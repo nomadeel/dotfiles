@@ -32,9 +32,12 @@ mpd
 # Start Bitlbee
 bitlbee -F -u $USER
 
+sh $HOME/bin/enable_docking.sh
+
 # Start the programs
 dunst &
 unclutter &
 # sxhkd &
-polybar example &
+# polybar example &
+sh $HOME/bin/launch_polybar.sh
 exec bspwm

@@ -1,5 +1,5 @@
 [global]
-    font = Iosevka 12
+    font = Misc Tamsyn 12
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -128,7 +128,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = auto
     
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
@@ -147,9 +147,8 @@
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
-[frame]
-    width = 2
-    color = "#e5e9f0"
+    frame_width = 0
+    frame_color = "#e5e9f0"
 
 [shortcuts]
 
@@ -175,18 +174,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#3b4252"
-    foreground = "#e5e9f0"
+    background = "#83a598"
+    foreground = "#32302f"
     timeout = 10
 
 [urgency_normal]
-    background = "#ebcb8b"
-    foreground = "#e5e9f0"
+    background = "#fabd2f"
+    foreground = "#32302f"
     timeout = 10
 
 [urgency_critical]
-    background = "#bf616a"
-    foreground = "#e5e9f0"
+    background = "#fb4934"
+    foreground = "#32302f"
     timeout = 0
 
 

@@ -4,16 +4,17 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Plugins
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
+Plug 'chriskempson/base16-vim'
 Plug 'dylanaraps/wal'
 Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-commentary'
-Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'scrooloose/nerdcommenter'
 
 " end vim-plug
 call plug#end()
@@ -26,9 +27,9 @@ call plug#end()
 " Colour
 "
 syntax enable
-" colorscheme gruvbox
-" colorscheme wal
-colorscheme nord
+"  colorscheme gruvbox
+colorscheme wal
+" colorscheme base16-gruvbox-dark-soft
 " set termguicolors
 " let g:gruvbox_contrast_dark=0
 " set background=dark
@@ -65,12 +66,12 @@ nmap <leader>k <Plug>(easymotion-k)
 " fzf
 nmap <leader>f :FZF<CR>
 " Grammerous
-nmap <leader>g <Plug>(grammarous-move-to-info-window)
-nmap <leader>o <Plug><Plug>(grammarous-open-info-window)
-nmap <leader>c <Plug>(grammarous-close-info-window)
-nmap <leader>r <Plug>(grammarous-remove-error)
-nmap <leader>n <Plug>(grammarous-move-to-next-error)
-nmap <leader>p <Plug>(grammarous-move-to-previous-error)
+" nmap <leader>g <Plug>(grammarous-move-to-info-window)
+" nmap <leader>o <Plug><Plug>(grammarous-open-info-window)
+" nmap <leader>c <Plug>(grammarous-close-info-window)
+" nmap <leader>r <Plug>(grammarous-remove-error)
+" nmap <leader>n <Plug>(grammarous-move-to-next-error)
+" nmap <leader>p <Plug>(grammarous-move-to-previous-error)
 
 
 " ===============================================
@@ -132,3 +133,24 @@ let g:fzf_colors = {
 
 " Enable per-command history
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+"
+" NERD Commenter
+"
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
