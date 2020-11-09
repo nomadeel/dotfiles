@@ -1,2 +1,2 @@
 # PATH Environment
-export PATH="$PATH:$HOME/bin:$HOME/.gem/ruby/2.5.0/bin/"
+export PATH="$PATH:$HOME/bin:$(ruby -e 'puts Gem.user_dir')/bin:$HOME/documents/machine_queue/:$HOME/.cabal/bin:$HOME/.cargo/bin"

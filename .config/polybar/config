@@ -1,44 +1,55 @@
-[bar/example]
+[bar/top]
 monitor = ${env:MONITOR:}
-width = 100%
-height = 35
-;offset-x = 11
-;offset-y = 11
+height = 42
+offset-y = 18
 
-background = #4646464
-foreground = ${xrdb:color7}
+background = #2e3440
+foreground = #e5e9f0
+occupied = #bf616a
 
-line-size = 2
+;line-size = 2
 
 ;border-size = 4
 ;border-color = #00000000
 
-padding-left = 2
-padding-right = 2
+padding-left = 3
+;padding-right = 3
 
-module-margin-left = 0
-module-margin-right = 0
+module-margin-left = 1
+module-margin-right = 1
 
-font-0 = Misc Tamsyn:size=14;0
+font-0 = Envy Code R:size=10;0
 font-1 = Inziu Iosevka J:size=10;0
 font-2 = Wuncon Siji:size=11;0
 
-modules-left = bspwm
-modules-right = wireless-network battery_internal battery_external volume backlight clock
+;modules-right = wireless-network battery_internal battery_external volume backlight clock
 
 wm-restack = bspwm
+
+[bar/ws]
+inherit = bar/top
+width = 5.5%
+offset-x = 11
+
+modules-left = bspwm
+
+[bar/info]
+inherit = bar/top
+width = 30.5%
+offset-x = 69%
+modules-left = wireless-network battery_internal battery_external volume backlight clock
 
 [module/clock]
 type = internal/date
 date =  %a, %d %b %H:%M
-format-padding = 2
-format-foreground = ${xrdb:color7}
+format-padding = 0
+format-foreground = ${bar/top.foreground}
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
-format-volume-padding = 2
-format-muted-padding = 2
+format-volume-padding = 0
+format-muted-padding = 0
 
 label-volume =  %percentage%
 label-muted =  0
@@ -79,14 +90,14 @@ label-full = "   "
 ; format-padding = 2
 
 format-charging = "    <animation-charging> <label-charging>"
-format-charging-padding = 2
+format-charging-padding = 0
 label-charging = %percentage% %time%
 
 format-discharging = "    <ramp-capacity> <label-discharging>"
-format-discharging-padding = 2
+format-discharging-padding = 0
 label-discharging = %percentage% %time%
 
-format-full-underline = ${xrdb:color3}
+; format-full-underline = ${xrdb:color3}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -157,19 +168,19 @@ enable-click = false
 enable-scroll = false
 
 label-focused = 
-; label-focused-background = ${xrdb:foreground}
+; label-focused-background = ${bar/top.foreground}
 ; label-focused-foreground = ${xrdb:background}
-label-focused-foreground = ${xrdb:color1}
+label-focused-foreground = ${bar/top.occupied}
 ;label-focused-padding = 2
 
 ;label-dimmed-focused = 
 
 label-occupied = 
-label-occupied-foreground = ${xrdb:color1}
+label-occupied-foreground = ${bar/top.occupied}
 ;label-occupied-padding = 2
 
 label-empty = 
-label-empty-foreground = ${xrdb:color7}
+label-empty-foreground = ${bar/top.foreground}
 ;label-empty-padding = 2
 
 [module/wireless-network]
@@ -182,10 +193,10 @@ format-connected = <label-connected>
 label-connected = " %essid%"
 
 label-disconnected =  not connected
-label-connected-foreground = ${xrdb:foreground}
+label-connected-foreground = ${bar/top.foreground}
 ; label-connected-padding = 2
 
-label-disconnected-foreground = ${xrdb:foreground}
+label-disconnected-foreground = ${bar/top.foreground}
 ; label-disconnected-padding = 2
 
 
@@ -197,7 +208,7 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 ; vim:ft=dosini

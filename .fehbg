@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '/home/nomadeel/pictures/wallpapers/cozy_bird.png' 
+feh --no-fehbg --bg-scale '/home/nomadeel/pictures/wallpapers/sharuru_night.png' 

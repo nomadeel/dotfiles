@@ -13,7 +13,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdcommenter'
 
 " end vim-plug
@@ -27,10 +27,11 @@ call plug#end()
 " Colour
 "
 syntax enable
-"  colorscheme gruvbox
-colorscheme wal
-" colorscheme base16-gruvbox-dark-soft
-" set termguicolors
+" colorscheme gruvbox
+" colorscheme wal
+colorscheme nord
+" colorscheme base16-material
+set termguicolors
 " let g:gruvbox_contrast_dark=0
 " set background=dark
 " let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
@@ -50,6 +51,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set laststatus=0
+
+let mapleader = "\<Space>"
 
 "
 " Keybinds
