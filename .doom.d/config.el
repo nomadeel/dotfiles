@@ -19,7 +19,9 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
- (setq doom-font (font-spec :family "Envy Code R" :size 16))
+(setq doom-font (font-spec :family "Envy Code R" :size 16))
+(setq doom-variable-pitch-font (font-spec :family "Envy Code R"))
+(setq doom-big-font (font-spec :family "Envy Code R"))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -51,6 +53,12 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(global-visual-line-mode t)
+
+(use-package! doom-modeline
+  :config
+  (setq doom-modeline-modal-icon nil))
 
 (setq-default tab-width 4 uniquify-buffer-name-style 'forward)
 
@@ -93,3 +101,13 @@
   :ensure t
   :config
   (define-key magit-mode-map (kbd "q") (lambda () (interactive) (magit-mode-bury-buffer t))))
+
+(with-eval-after-load 'evil
+  (require 'evil)
+  (defadvice forward-evil-paragraph (around default-values activate)
+    (let ((paragraph-start (default-value 'paragraph-start))
+          (paragraph-separate (default-value 'paragraph-separate)))
+      ad-do-it)))
+
+(after! rustic
+  (setq rustic-lsp-server 'rust-analyzer))
