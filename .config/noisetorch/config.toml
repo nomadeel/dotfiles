@@ -1,0 +1,8 @@
+Threshold = 40
+DisplayMonitorSources = false
+EnableUpdates = true
+GuiltTripped = false
+FilterInput = true
+FilterOutput = false
+LastUsedInput = "alsa_input.usb-RODE_MICROPHONESj_Rode_Podcaster-00.mono-fallback"
+LastUsedOutput = ""
