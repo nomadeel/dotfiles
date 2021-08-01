@@ -1,2 +1,12 @@
 # PATH Environment
-export PATH="$PATH:$HOME/bin:$(ruby -e 'puts Gem.user_dir')/bin:$HOME/documents/machine_queue/:$HOME/.cabal/bin:$HOME/.cargo/bin"
+
+# Local bin directory
+PATH="$PATH:$HOME/bin"
+# Ruby bin directory
+PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin:"
+# Rust bin directory
+PATH="$PATH:$HOME/.cargo/bin"
+# Another local bin directory
+PATH="$PATH:$HOME/.local/bin"
+
+export PATH="$PATH"
