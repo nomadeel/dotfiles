@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# A simple script that sends a notification to dunst for now-playing songs.
+# Uses mpc and notify-send.
+
+music_dir="/mnt/media/Albums"
+
+# find file location
+file="$(mpc current -f %file%)"
+
+# get title info
+title="$(mpc current -f %title%)"
+
+# get artist info
+artist="$(mpc current -f %artist%)"
+
+# get album info
+album="$(mpc current -f %album%)"
+
+cover="/tmp/cover.png"
+
+# grab the cover from the file
+ffmpeg -i "$music_dir/$file" -y -vf scale=60:60 $cover > /dev/null 2>&1
+
+if [ $? -ne 0 ] ; then
+    cover="~/music/placeholder.png"
+fi
+
+notify-send -i "$cover" -u low -t 5000 "$title" "$artist\n<i>$album</i>"
