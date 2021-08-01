@@ -35,8 +35,7 @@ _PROMPT() {
 
 alias ls='ls --color=auto'
 
-alias sel4-container='make -C $HOME/documents/sel4_dockerfiles user HOST_DIR=$(pwd)'
-alias ts-proxy='ssh -D 9000 -f -N damonl@login.ts.data61.csiro.au'
+alias sel4-container='make -C $HOME/documents/sel4_dockerfiles user_camkes-riscv HOST_DIR=$(pwd)'
 
 alias nv='nvim'
 
