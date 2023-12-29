@@ -14,7 +14,7 @@ URxvt.scrollTtyKeypress: true
 
 !! fonts
 ! to find xft name of a font use "fc-list | grep"
-URxvt*font: xft:Misc Tamsyn:style=Regular:size=14,\
+URxvt*font: xft:Envy Code R:style=Regular:size=9,\
             xft:Inziu Iosevka J
 URxvt*letterSpace: -1
 

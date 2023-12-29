@@ -19,7 +19,7 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = Envy Code R:size=10;0
-font-1 = Inziu Iosevka J:size=10;0
+font-1 = Sarasa Gothic J:size=10;0
 font-2 = Wuncon Siji:size=11;0
 
 ;modules-right = wireless-network battery_internal battery_external volume backlight clock
@@ -28,7 +28,7 @@ wm-restack = bspwm
 
 [bar/ws]
 inherit = bar/top
-width = 5.5%
+width = 8.5%
 offset-x = 11
 
 modules-left = bspwm
@@ -68,7 +68,7 @@ port = 6600
 ;format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <label-time>  <label-song>
 label-song = %artist% - %title:0:20:...%
 format-playing =     <label-song>
-format-stopped =     No song playing 
+format-stopped =     No song playing
 icon-play = 
 icon-pause = 
 icon-stop = 

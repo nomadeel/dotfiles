@@ -11,8 +11,8 @@ configuration {
 	xoffset: 0;
 	fixed-num-lines: true;
 /*	show-icons: false;*/
-	terminal: "urxvt";
-	ssh-client: "ssh";
+	terminal: "alacritty";
+	ssh-client:"ssh";
 	ssh-command: "{terminal} -e {ssh-client} {host}";
 	run-command: "{cmd}";
 	run-list-command: "";
@@ -53,11 +53,10 @@ configuration {
 	window-format: "{w}   {c}   {t}";
 	click-to-exit: true;
 	show-match: true;
-/*	theme: ;*/
-	color-normal: "#2e3440,#e5e9f0,#2e3440,#e5e9f0,#2e3440";
-	color-urgent: "#2e3440,#e5e9f0,#2e3440,#e5e9f0,#2e3440";
-	color-active: "#2e3440,#e5e9f0,#2e3440,#e5e9f0,#2e3440";
-	color-window: "#2e3440,#e5e9f0";
+	color-normal: "#81a1c1,#e5e9f0,#81a1c1,#e5e9f0,#81a1c1";
+	color-urgent: "#81a1c1,#e5e9f0,#81a1c1,#e5e9f0,#81a1c1";
+	color-active: "#81a1c1,#e5e9f0,#81a1c1,#e5e9f0,#81a1c1";
+	color-window: "#81a1c1,#e5e9f0";
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
 /*	matching-negate-char: '-' /* unsupported */;*/

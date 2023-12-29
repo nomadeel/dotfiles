@@ -24,15 +24,20 @@ xss-lock -- "$HOME/bin/lockscreen" &
 xbindkeys
 # Load the sensitivity settings for the TrackPoint
 xinput --set-prop 11 'libinput Accel Speed' 0.8
-# Load the wallpaper
-sh ~/.fehbg
 # Start mpd and mpdcron
 [[ -z $(pgrep -xU $UUID mpdcron) ]] && mpdcron &
 mpd
+# Read bitmap fonts
+xset +fp $HOME/.local/share/fonts
+xset fp rehash
+fc-cache -f
 # Start Bitlbee
-bitlbee -F -u $USER
+# bitlbee -F -u $USER
 
 sh $HOME/bin/enable_docking.sh
+
+# Load the wallpaper
+sh ~/.fehbg
 
 # Start the programs
 dunst &
@@ -40,4 +45,5 @@ unclutter &
 # sxhkd &
 # polybar example &
 sh $HOME/bin/launch_polybar.sh
+
 exec bspwm

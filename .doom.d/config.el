@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Damon Lee"
-      user-mail-address "Damon.Lee@data61.csiro.au")
+      user-mail-address "damon@kry10.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -19,9 +19,9 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Envy Code R" :size 16))
-(setq doom-variable-pitch-font (font-spec :family "Envy Code R"))
-(setq doom-big-font (font-spec :family "Envy Code R"))
+(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 16))
+(setq doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font"))
+(setq doom-big-font (font-spec :family "Iosevka Nerd Font"))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -56,32 +56,31 @@
 
 (global-visual-line-mode t)
 
-(use-package! doom-modeline
-  :config
-  (setq doom-modeline-modal-icon nil))
-
-(setq-default tab-width 4 uniquify-buffer-name-style 'forward)
+(setq-default tab-width 4)
 
 ;; Line wrap everywhere and don't indent
 (+global-word-wrap-mode +1)
 
 (use-package! projectile
   :config
-  (setq projectile-indexing-method 'hybrid)
+  (setq projectile-indexing-method 'alien)
   :config
   (projectile-register-project-type 'sel4 '("SEL4_PROJECT")
                                     :compilation-dir "build"
-                                    :compile "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON . && ln -r -s -f compile_commands.json ../compile_commands.json && ninja"))
-
-(use-package! counsel
+                                    :compile "nix-shell --run 'cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON . && ln -r -s -f compile_commands.json ../compile_commands.json && ninja' ../default.nix")
   :config
-  (define-key! [remap projectile-compile-project] #'projectile-compile-project))
+  (projectile-register-project-type 'org '("ORG")
+                                    :compilation-dir "temp"
+                                    :compile ""))
+
+;; (use-package! counsel
+;;   :config
+;;   (define-key! [remap projectile-compile-project] #'projectile-compile-project))
 
 (with-eval-after-load 'projectile
   (require 'f)
   (defun my-ignore-work-projects (project-root)
-    (or (f-descendant-of? project-root (expand-file-name "~/Documents/camkes/projects"))
-        (f-descendant-of? project-root (expand-file-name "~/Documents/sel4test/projects"))))
+    (f-descendant-of? project-root (expand-file-name "~/documents/work/kos/projects")))
   (setq projectile-ignored-project-function #'my-ignore-work-projects))
 
 (defun my-git-commit-setup ()
@@ -98,7 +97,6 @@
 (setq cmake-tab-width 4)
 
 (use-package! magit
-  :ensure t
   :config
   (define-key magit-mode-map (kbd "q") (lambda () (interactive) (magit-mode-bury-buffer t))))
 
@@ -111,3 +109,10 @@
 
 (after! rustic
   (setq rustic-lsp-server 'rust-analyzer))
+
+(setq lsp-clients-clangd-args '("-j=3"
+                                "--background-index"
+                                "--completion-style=detailed"
+                                "--header-insertion=never"
+                                "--header-insertion-decorators=0"))
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))

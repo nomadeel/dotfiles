@@ -1,2 +1,3 @@
 # clipboard fix
 set selection-clipboard "clipboard"
+set font "Iosevka Nerd Font normal 10"

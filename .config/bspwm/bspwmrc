@@ -24,7 +24,8 @@ bspc rule -a Emacs state=tiled
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
 
-
-bspc monitor eDP1 -d I II III IV V
-bspc monitor HDMI2 -d VI VII VIII IX X
-
+if [ $(xrandr -q | grep HDMI2 | cut -d' ' -f2) == "connected" ]; then
+    bspc monitor HDMI2 -d I II III IV V VI VII VIII IX X
+else
+    bspc monitor eDP1 -d I II III IV V VI VII VIII IX X
+fi
